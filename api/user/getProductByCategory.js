@@ -19,6 +19,7 @@ async function GetProductsByCategory(req, res) {
     // Check if the category exists
     const category = await categoriesCollection.findOne({
       _id: ObjectId.createFromHexString(categoryId),
+      status: "active",
     });
     if (!category) {
       return res
